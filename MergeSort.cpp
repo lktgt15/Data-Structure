@@ -3,33 +3,31 @@
 
 using namespace std;
 
-template <typename baseT>
+template <typename T>
 class MergeSort{
 
 private:
-	vector<baseT> tmpv;
+	vector<T> tmpv;
 
 public:
 	MergeSort(){
 
 	}
 
-	void sizing(vector<baseT> &arr){
+	void sizing(vector<T> &arr){
 		tmpv.resize(arr.size());
 	}
 
-	template <typename T1,typename T2>
-	void merge(T1 l, T2 r, vector<baseT> &arr){
+	void merge(T l, T r, vector<T> &arr){
 		if(l >= r) return;
-		T1 mid = (l+r)/2;
+		T mid = (l+r)/2;
 		merge(l,mid,arr);
 		merge(mid+1,r,arr);
 		mergesort(l,r,arr);
 	}
 
-	template <typename T1, typename T2>
-	void mergesort(T1 L, T2 R, vector<baseT> &arr){
-		T1 l,r,idx,mid;
+	void mergesort(T L, T R, vector<T> &arr){
+		T l,r,idx,mid;
 		l = idx = L;
 		mid = (L+R)/2;
 		r = mid+1;
@@ -42,10 +40,10 @@ public:
 		while(l <= mid) tmpv[idx++] = arr[l++];
 		while(r <= R) tmpv[idx++] = arr[r++];
 
-		for(T1 i=L;i<=R;i++) arr[i] = tmpv[i];
+		for(T i=L;i<=R;i++) arr[i] = tmpv[i];
 	}
 
-	void tmpToArrCopy(vector<baseT> &arr){
+	void tmpToArrCopy(vector<T> &arr){
 		for(int i=0;i<arr.size();i++) arr[i] = tmpv[i];
 	}
 };
