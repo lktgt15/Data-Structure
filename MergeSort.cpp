@@ -1,5 +1,5 @@
 #include <vector>
-#include <cstdio>
+#include <iostream>
 
 using namespace std;
 
@@ -53,5 +53,5 @@ int main(){
 	MergeSort<int> mst;
 	mst.sizing(arr);
 	mst.merge(0,arr.size()-1,arr);
-	for(int &n : arr) printf("%d ",n);
+	for(auto &n : arr) cout << n << " ";
 }
