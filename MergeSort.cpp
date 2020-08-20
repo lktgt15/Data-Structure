@@ -14,13 +14,12 @@ public:
 
 	}
 
-	template <typename T>
-	void sizing(T &arr){
+	void sizing(vector<baseT> &arr){
 		tmpv.resize(arr.size());
 	}
 
-	template <typename T1,typename T2,typename T3>
-	void merge(T1 l, T2 r, T3 &arr){
+	template <typename T1,typename T2>
+	void merge(T1 l, T2 r, vector<baseT> &arr){
 		if(l >= r) return;
 		T1 mid = (l+r)/2;
 		merge(l,mid,arr);
@@ -28,8 +27,8 @@ public:
 		mergesort(l,r,arr);
 	}
 
-	template <typename T1, typename T2, typename T3>
-	void mergesort(T1 L, T2 R, T3 &arr){
+	template <typename T1, typename T2>
+	void mergesort(T1 L, T2 R, vector<baseT> &arr){
 		T1 l,r,idx,mid;
 		l = idx = L;
 		mid = (L+R)/2;
@@ -46,8 +45,7 @@ public:
 		for(T1 i=L;i<=R;i++) arr[i] = tmpv[i];
 	}
 
-	template <typename T>
-	void tmpToArrCopy(T &arr){
+	void tmpToArrCopy(vector<baseT> &arr){
 		for(int i=0;i<arr.size();i++) arr[i] = tmpv[i];
 	}
 };
